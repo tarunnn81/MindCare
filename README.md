@@ -37,7 +37,8 @@ MindCare is a modern, responsive mental wellness and therapy application built u
    - Mental wellness preferences and privacy controls (export data, delete history).
 
 
-Live App on https://mind-care-app
+
+Live App on https://mind-care-app.ai.studio
 
 
 ## 📁 Flutter Project Architecture
