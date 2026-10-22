@@ -4,7 +4,7 @@
 
 MindCare is a modern, responsive mental wellness and therapy application built using **Dart & Flutter** for the mobile frontend and backed by a secure **Node.js/Express & Google Gemini AI API** for empathetic therapy conversations, mood tracking, guided meditation, therapist directory, and 24/7 crisis support.
 
----
+App is live on https://mind-care-app.ai.studio
 
 ## 📱 Features
 
