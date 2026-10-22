@@ -1,170 +1,128 @@
-## Project Overview
-MindCare is a mental wellness application that helps users manage stress, anxiety, overthinking, emotional difficulties, and everyday challenges. It provides AI-powered emotional support, mood tracking, guided meditation, journaling, and access to professional therapists.
+# 🌸 MindCare – Mental Health & Therapy Chat App
 
-The application should have a clean, calming interface and work on Android and iOS. Keep the code modular, maintainable, and suitable for a college project or future production development.
+> **"Your Mind Matters. We're Here to Listen."**
 
-## Technology Stack
-- Programming language: Dart
-- Framework: Flutter
-- Backend and database: Firebase or Supabase
-- Authentication: Firebase Authentication or Supabase Auth
-- AI chat: Integrate an AI model through a secure backend API
-- Charts: Flutter-compatible charting package
-- Notifications: Firebase Cloud Messaging, if configured
-- State management: Provider or Riverpod
-- Local storage: SharedPreferences or a suitable secure storage solution
+MindCare is a modern, responsive mental wellness and therapy application built using **Dart & Flutter** for the mobile frontend and backed by a secure **Node.js/Express & Google Gemini AI API** for empathetic therapy conversations, mood tracking, guided meditation, therapist directory, and 24/7 crisis support.
 
-## UI and Design
-- Use a calming combination of lavender, light blue, white, and pastel green.
-- Use Material Design 3 components, rounded cards, subtle animations, and readable typography.
-- Create a mobile-first layout with support for different screen sizes.
-- Include dark mode and accessible text sizes.
-- Use a welcoming design with the tagline: “Your Mind Matters. We're Here to Listen.”
+---
 
-## Main Features
+## 📱 Features
 
-### 1. Authentication
-- Sign up, log in, log out, and password recovery.
-- User profile with display name and optional wellness preferences.
-- Form validation and clear error messages.
-- Secure authentication and protected user-specific data.
+1. **AI Therapy Chat (`/lib/features/chat/`)**
+   - Empathetic, non-judgmental conversational support powered by Google Gemini.
+   - Evidence-based coping tools (CBT reframing, Box breathing, Grounding).
+   - Real-time typing indicators, quick prompt chips, topic filters (Stress, Sleep, Relationships, Overthinking).
+   - Crisis keyword safety protocols with verified emergency helplines.
 
-### 2. AI Therapy Chat
-- Create a real-time-style chat interface with message bubbles.
-- Display user and AI messages with timestamps.
-- Show a typing indicator while generating responses.
-- Add suggested prompts:
-  - I'm feeling stressed today.
-  - I can't stop overthinking.
-  - I need someone to talk to.
-  - Help me relax before sleeping.
-- Include conversation topics such as stress, confidence, relationships, sleep, and emotional wellness.
-- Allow users to start a new conversation and delete their chat history.
-- Connect the chat to an AI service through a secure backend rather than exposing API keys in the Flutter app.
-- Provide empathetic, non-judgmental responses and practical coping strategies.
+2. **Mood Tracking & Trend Analytics (`/lib/features/mood/`)**
+   - Emoji & 1-10 intensity mood logging with contextual tags and journal notes.
+   - Interactive weekly and monthly mood trends using `fl_chart`.
+   - Gentle, non-diagnostic self-care suggestions based on emotional trends.
 
-### 3. Mood Tracking
-- Allow users to select a mood using emojis or a scale from 1 to 10.
-- Let users add optional journal notes.
-- Store mood entries with dates.
-- Display weekly and monthly mood trends using charts.
-- Provide general self-care suggestions without diagnosing mental health conditions.
+3. **Guided Meditation & Self-Care (`/lib/features/wellness/`)**
+   - Interactive guided breathing circle (Box Breathing 4-4-4-4, 4-7-8 relaxing breath, Deep Calm).
+   - 5-4-3-2-1 Sensory Grounding interactive exercise.
+   - Daily wellness checklist and mindful journaling prompts.
 
-### 4. Therapist Directory
-- Display therapist profiles, verified qualifications, specialties, languages, and consultation fees.
-- Include search and filtering.
-- Allow users to view available appointments and book, cancel, or reschedule consultations.
-- Clearly distinguish actual therapist profiles and bookings from demo data.
-- Add messaging or video consultations only when the required services are configured.
+4. **Therapist Directory & Consultations (`/lib/features/therapists/`)**
+   - Verified licensed psychologists, psychiatrists, and counselors.
+   - Filter by specialty, spoken language, and fee range.
+   - Appointment booking system (video, clinic, audio) with reschedule/cancel management.
 
-### 5. Meditation and Self-Care
-- Add guided breathing exercises with an animated breathing circle.
-- Provide mindfulness sessions, grounding techniques, and relaxation exercises.
-- Include a meditation timer and daily self-care checklist.
-- Add journaling prompts and sleep relaxation activities.
-- Track completed activities.
+5. **24/7 Emergency Crisis Support (`/lib/core/services/`)**
+   - Immediate "Get Help Now" action accessible from anywhere.
+   - Verified crisis helplines for India (Tele-MANAS `14416`, KIRAN `1800-599-0019`, AASRA, Vandrevala Foundation), US/Canada (`988`), UK (`111`), and International.
 
-### 6. Home Dashboard
-- Display a personalized greeting.
-- Add a daily mood check-in.
-- Show recent mood entries and wellness progress.
-- Provide quick-access cards for AI chat, meditation, journaling, and therapist appointments.
-- Include a bottom navigation bar with Home, Chat, Mood, Wellness, and Profile.
+6. **Authentication & Profile Management (`/lib/features/authentication/`)**
+   - Secure login, signup, and password recovery.
+   - Mental wellness preferences and privacy controls (export data, delete history).
 
-### 7. Emergency Support
-- Add a clearly visible “Get Help Now” option.
-- If users express possible self-harm or immediate danger, respond calmly and encourage them to contact a trusted person and appropriate professional or emergency services.
-- Provide verified local crisis resources, including appropriate resources for users in India.
-- Do not claim that the app continuously monitors messages or that the AI can independently handle emergencies.
+---
 
-### 8. Profile and Settings
-- Allow users to edit their profile and preferences.
-- Add notification settings and theme selection.
-- Provide options to review and delete stored personal information.
-- Include privacy information, app information, and logout.
+## 📁 Flutter Project Architecture
 
-## Flutter Project Structure
-
-Organize the Dart code using a clean, feature-based structure similar to this:
-
+```
 lib/
-  main.dart
-  app.dart
-  core/
-    theme/
-      app_theme.dart
-    constants/
-      app_constants.dart
-    services/
-      auth_service.dart
-      ai_chat_service.dart
-      database_service.dart
-  models/
-    user_model.dart
-    chat_message.dart
-    mood_entry.dart
-    therapist.dart
-  features/
-    authentication/
-      login_screen.dart
-      signup_screen.dart
-    home/
-      home_screen.dart
-    chat/
-      chat_screen.dart
-      chat_controller.dart
-    mood/
-      mood_screen.dart
-      mood_controller.dart
-    wellness/
-      meditation_screen.dart
-      journal_screen.dart
-    therapists/
-      therapist_screen.dart
-    profile/
-      profile_screen.dart
-  widgets/
-    custom_button.dart
-    mood_card.dart
-    chat_bubble.dart
+├── main.dart                       # App entry point & Provider registration
+├── app.dart                        # MaterialApp configuration & routing
+├── core/
+│   ├── theme/
+│   │   └── app_theme.dart          # Calming Lavender/Mint Material 3 Theme
+│   ├── constants/
+│   │   └── app_constants.dart      # Colors, typography, crisis helplines
+│   └── services/
+│       ├── auth_service.dart       # User authentication & session state
+│       ├── ai_chat_service.dart    # Secure backend chat API integration
+│       └── database_service.dart   # Local persistence via SharedPreferences
+├── models/
+│   ├── user_model.dart             # User profile & wellness preferences
+│   ├── chat_message.dart           # Chat message schema
+│   ├── mood_entry.dart             # Mood log entry with tags & notes
+│   └── therapist.dart              # Therapist profile & appointment slots
+├── features/
+│   ├── authentication/
+│   │   ├── login_screen.dart       # Sign in with validation
+│   │   └── signup_screen.dart      # Registration screen
+│   ├── home/
+│   │   └── home_screen.dart        # Dashboard with daily check-in & quick cards
+│   ├── chat/
+│   │   ├── chat_screen.dart        # Chat UI with prompt chips & topics
+│   │   └── chat_controller.dart    # Provider state for chat history
+│   ├── mood/
+│   │   ├── mood_screen.dart        # Mood logging and fl_chart trend graphs
+│   │   └── mood_controller.dart    # Mood state provider
+│   ├── wellness/
+│   │   ├── meditation_screen.dart  # Guided breathing circle & grounding tools
+│   │   └── journal_screen.dart     # Reflection prompts & daily checklist
+│   ├── therapists/
+│   │   └── therapist_screen.dart   # Therapist directory & booking flow
+│   └── profile/
+│       └── profile_screen.dart     # User settings, dark mode & privacy controls
+└── widgets/
+    ├── custom_button.dart          # Material 3 styled rounded buttons
+    ├── mood_card.dart              # Interactive mood rating card
+    └── chat_bubble.dart            # Empathetic speech bubble with copy/share
+```
 
-## Development Requirements
-- Use null-safe Dart.
-- Use reusable Flutter widgets and separate UI, business logic, and data services.
-- Use Provider or Riverpod consistently for state management.
-- Implement navigation with named routes or a suitable routing package.
-- Include loading indicators, empty states, error handling, and input validation.
-- Write clean, documented code that is easy for a student to understand.
-- Use Firebase or Supabase only after the project is configured.
-- Include mock data only for clearly labeled demonstration screens.
-- Ensure that all buttons and navigation elements perform their intended actions.
+---
 
-## Security and Mental Health Safety
-- Never store private API keys in the Flutter client.
-- Restrict database access to authenticated, authorized users.
-- Obtain appropriate consent before storing sensitive wellness information.
-- Do not use AI to diagnose disorders or prescribe medication.
-- Explain that AI chat is supportive and is not a replacement for licensed therapy.
-- Protect private chat histories and mood records.
-- Test emergency guidance and privacy controls before public release.
+## 🚀 How to Run the Flutter Application
 
-## Expected Deliverables
-1. Complete Flutter project written in Dart.
-2. Attractive splash screen and onboarding flow.
-3. Login and signup screens.
-4. Home dashboard with bottom navigation.
-5. Functional AI chat interface.
-6. Mood tracker with charts.
-7. Meditation, breathing, and journaling screens.
-8. Therapist directory and appointment flow.
-9. Profile, privacy, and settings screens.
-10. Setup instructions in README.md.
-11. Dependency list in pubspec.yaml.
-12. Instructions for running the app using Android Studio or VS Code.
+### Prerequisites
+- Flutter SDK `>= 3.19.0`
+- Dart SDK `>= 3.0.0`
+- Android Studio or VS Code with Flutter extension
+- An Android Emulator, iOS Simulator, or physical device
 
-## Implementation Instructions
-Build the application step by step. First create the Flutter project, theme, navigation, authentication screens, dashboard, and chat UI. Then implement mood tracking, wellness tools, therapist features, and backend integrations.
+### Step 1: Clone and Get Dependencies
+```bash
+git clone https://github.com/your-username/mindcare.git
+cd mindcare
+flutter pub get
+```
 
-Generate complete Dart source files rather than pseudocode. Ensure imports, dependencies, navigation, and models are consistent across the project. Where credentials or external services are unavailable, provide a clearly labeled demo mode and explain how to enable the real integration.
+### Step 2: Configure Backend API
+The Flutter client communicates with the MindCare Node.js backend. In `/lib/core/constants/app_constants.dart`, update the backend endpoint:
+```dart
+// For Android Emulator:
+static const String apiBaseUrl = 'http://10.0.2.2:3000';
 
-The final result should be a polished, functional Flutter mental wellness application suitable for Android and expandable to iOS.
+// For iOS Simulator:
+static const String apiBaseUrl = 'http://localhost:3000';
+
+// For Production Cloud Run or Server:
+static const String apiBaseUrl = 'https://your-cloud-run-url.app';
+```
+
+### Step 3: Run the App
+- In **VS Code**: Press `F5` or select `Run Without Debugging`.
+- In **Android Studio**: Select target device from the dropdown and click the green `Play` button.
+- In **Terminal**:
+```bash
+flutter run
+```
+
+---
+
+## 🛡️ Mental Health Safety & Ethics Notice
+MindCare AI is designed strictly as an emotional support and wellness companion. It is **not** a healthcare provider, does not diagnose clinical psychiatric conditions, and does not prescribe medication. Users in crisis are prompted with 24/7 emergency hotline contacts.

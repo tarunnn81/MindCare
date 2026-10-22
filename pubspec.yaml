@@ -1,0 +1,35 @@
+name: mindcare
+description: "MindCare – Mental Health & Therapy Chat App built with Dart and Flutter."
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # State Management
+  provider: ^6.1.2
+  # HTTP & Networking for secure AI backend API
+  http: ^1.2.1
+  # Local Persistence & Offline Caching
+  shared_preferences: ^2.2.3
+  # Charts for Mood tracking
+  fl_chart: ^0.68.0
+  # Beautiful Icons
+  lucide_icons: ^0.257.0
+  # Date formatting
+  intl: ^0.19.0
+  # Animations & UI
+  google_fonts: ^6.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/

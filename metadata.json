@@ -1,0 +1,6 @@
+{
+  "name": "MindCare – Mental Health & Therapy Chat App",
+  "description": "MindCare is a calming mental wellness application providing empathetic AI therapy chat, mood tracking, guided breathing & meditation, therapist directory with appointments, and emergency crisis support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
